@@ -331,10 +331,7 @@ namespace adaptive
     }
     base_url_.resize(paramPos + 1);
 
-    if (base_url_.compare(0, 1, "/") == 0)
-      paramPos = 0;
-    else
-      paramPos = base_url_.find("://", 0, 8);
+    paramPos = (base_url_.compare(0, 1, "/") == 0) ? 0 : base_url_.find("://", 0, 8);
 
     if (paramPos != std::string::npos)
     {
